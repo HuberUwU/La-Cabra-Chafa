@@ -3,8 +3,8 @@ const keepAlive = require('./serveron')
 const bot = new Aoijs.Bot({
   sharding: false, 
   shardAmount: 2, 
-  mobile: false,
-  token: "ODM3MTQwOTg2NzQzNzUwNjU2.YIoOTA.o59O_oHZ9RH6JVBQoqugpWs3r0g", 
+mobile: false,
+  token: "ODM3MTQwOTg2NzQzNzUwNjU2.YIoOTA.lnHRtHZEseVloTZ4y7fQdreiN4s", 
   prefix: ["$getServerVar[prefix]"] 
 })
 
@@ -80,8 +80,7 @@ bot.command({
 
 📩tickets[3] $getServerVar[prefix]tsetup $getServerVar[prefix]ticket $getServerVar[prefix]close
 $addfield[Recordatorio:;Si no te gusta mi prefix pon $getServerVar[prefix]setprefix para cambiarlo.] 
-Estamos Agregando mas😃  
-v1.0.2
+v1.1.2
 $image[https://top.gg/api/widget/837140986743750656.svg]
 [Invitame si quieres](https://dsc.gg/phonyx)🥺 | [Soporte](https://discord.gg/phonyx) | [Votar](https://discordthings.com/bot/837140986743750656) $footer[$addTimestamp] $addReactions[<a:verif:841219933433495572>]
 
@@ -114,9 +113,10 @@ bot.command({
  $playSong[$message;❌** | No se encontro la cancion**]
  $footer[comando de musica | $getServerVar[prefix]play ]
  $addTimestamp
-$onlyIf[$voiceID==$voiceID[$clientID];No estas en el mismo canal de voz que yo ]
-$onlyIf[$voiceID!=;No estas en un canal de voz!]
- $color[RANDOM]`
+ $joinvc[$voiceid[$authorid]]
+$onlyIf[$voiceID==$voiceID[$clientID];No estas en el mismo canal de voz que yo 
+(**Si el bot no esta en ningún canal usar $getServerVar[prefix]join y vuelve a intentar**)]
+$onlyIf[$voiceID!=;No estas en un canal de voz!] `
 })
 
 bot.command({
@@ -225,7 +225,7 @@ bot.command({
  name: "leave",
  aliases: ['disconnect', 'dc'],
  code: `
-Me desconecte Correctamente del Canal <#$voicid]>
+Me desconecte Correctamente del Canal <#$voicid[$authorid]>
 $leavevc
 $onlyif[$voiceid[$clientid]!=;:x: Yo no estoy Conectado A un Canal.]
 $onlyIf[$voiceid[$authorid]!=;:x: Porfavor unete a un canal de Voz.]
@@ -907,7 +907,7 @@ name: "lyrics",
 code: `$onlyIf[$message!=;*Escriba el nombre de la canción para mostrar la letra*]
 $title[**:page_with_curl: $message Lyrics**]
 $description[**Letra de $message**
-$jsonRequest[https://some-random-api.ml/lyrics?title=$replaceText[$message; ;+];lyrics;No se encontró la letra]] `
+$jsonRequest[https://some-random-api.ml/lyrics?title=$replaceText[$message; ;+];lyrics;No se encontró la letra/No escribio el nombre de la canción]] `
 })
 
 bot.command({
@@ -1202,16 +1202,18 @@ bot.channelCreateCommand({
  code: `$title[💬 | Canal Creado]
  $description[
  💿 | Nombre: $newChannel[name] ]
- $footer[Logs]`
+ $footer[Logs]
+ Creado por <@$authorID>`
  })
 bot.onChannelCreate()
 
 bot.channelDeleteCommand({ 
  channel: "$getServerVar[logs]", 
- code: `$title[:sasupan: | Canal eliminado]
+ code: `$title[🌩️ | Canal eliminado]
  $description[
- :10s: | Nombre: $oldChannel[name] ]
- $footer[Logs]`
+ 💳 | Nombre: $oldChannel[name] ]
+ $footer[Logs]
+ Eliminado Por <@$authorID>`
  })
 bot.onChannelDelete()
 
@@ -1221,29 +1223,31 @@ bot.channelUpdateCommand({
  $description[
  💿 | Nombre ant: $oldChannel[name]
  📀 | Nombre nuevo: $newChannel[name]]
- $footer[Logs]`
+ $footer[Logs]
+ Editado Por`
  })
 bot.onChannelUpdate()
 
 
 bot.updateCommand({
  channel: "$getServerVar[logs]", 
- code: `$title[:sasupan: | Mensaje Editado]
- $description[:10s: | Mensaje editado por $username en <#$channelUsed>
-:10s: | Mensaje nuevo: $message
-:10s: | Mensaje anterior: $oldMessage]`
+ code: `$title[🛑 | Mensaje Editado]
+ $description[💬 | Mensaje editado por $username en <#$channelUsed>
+💽 | Mensaje nuevo: $message
+💬 | Mensaje anterior: $oldMessage]`
 })
 bot.onMessageUpdate()
 
 
 bot.deletedCommand({
  channel: "$getServerVar[logs]",
- code: `$title[:sasupan: | Mensaje Eliminado]
- $description[:10s: | Mensaje eliminado por: $username
- :10s: | Eliminado en: <#$channelUsed>
- :10s: | Mensaje borrado: $message]`
+ code: `$title[:x: | Mensaje Eliminado]
+ $description[🌑 | Mensaje eliminado por: $username
+ 🚩 | Eliminado en: <#$channelUsed>
+ 💬 | Mensaje borrado: $message]`
 })
 bot.onMessageDelete()
+
 
 bot.command({
  name: "setlogs",
@@ -1276,5 +1280,9 @@ bot.interactionCommand({
  $color[RANDOM]]`
 })
 bot.onInteractionCreate()
+
+bot.variables({
+modlogs: "",
+})
 //////FIN DE COMANDOS
 keepAlive()
