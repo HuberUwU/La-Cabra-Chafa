@@ -1284,5 +1284,71 @@ bot.onInteractionCreate()
 bot.variables({
 modlogs: "",
 })
+
+bot.command({
+  name: "help3",
+  code: `
+$let[e;$apiMessage[;{title:Help Command}
+{thumbnail:$authorAvatar}
+{field:General:Click the Button:true}
+{field:Economy:Click the Button:true}
+{field:Fun:Click the Button:true}
+{field:Moderator:Click the Button:true}
+{field:Other:Click the Other Button:true}
+ 
+{color:#5865F2};{actionRow:General,2,1,GeneralButton,:Economy,2,1,EconomyButton,:Fun,2,1,FunButton,:Moderator,2,1,ModeratorButton,:Other,2,1,OtherButton};;yes]]`
+})
+ 
+bot.onInteractionCreate()
+bot.interactionCommand({
+ name: "GeneralButton",
+ prototype:"button",
+ code:`
+$interactionDelete
+$wait[10s]
+$interactionEdit[;{color:#2f3136}{title:General Commands}{description:These are my commands\ncommands names here}]
+$wait[3s]
+$interactionReply[I'm loading general commands;;;0;4]`
+})
+ 
+bot.interactionCommand({
+ name: "EconomyButton",
+ prototype:"button",
+ code:`$interactionDelete
+$wait[10s]
+$interactionEdit[;{color:#2f3136}{title:Economy Commands}{description:These are my commands\ncommands names here}]
+$wait[3s]
+$interactionReply[I'm loading economy commands;;;0;4]`
+})
+ 
+bot.interactionCommand({
+ name: "FunButton",
+ prototype:"button",
+ code:`$interactionDelete
+$wait[10s]
+$interactionEdit[;{color:#2f3136}{title:Fun Commands}{description:These are my commands\ncommands names here}]
+$wait[3s]
+$interactionReply[I'm loading fun commands;;;0;4]`
+})
+ 
+bot.interactionCommand({
+ name: "ModeratorButton",
+ prototype:"button",
+ code:`$interactionDelete
+$wait[10s]
+$interactionEdit[;{color:#2f3136}{title:Moderation Commands}{description:These are my commands\ncommands names here}]
+$wait[3s]
+$interactionReply[I'm loading moderation commands;;;0;4]`
+})
+ 
+bot.interactionCommand({
+ name: "OtherButton",
+ prototype: "button",
+ code:`$interactionDelete
+$wait[10s]
+$interactionEdit[;{color:#2f3136}{title:Other Commands}{description:These are my commands\ncommands names here}]
+$wait[3s]
+$interactionReply[I'm loading other commands;;;0;4]`
+})
 //////FIN DE COMANDOS
 keepAlive()
