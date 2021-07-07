@@ -1294,9 +1294,10 @@ $let[e;$apiMessage[;{title:Lista de Comandos}
 {field:Moderacion:Click en el Boton:true}
 {field:Diversion:Click en el Boton:true}
 {field:Utilidad:Click en el Boton:true}
-{field:Tickets:Click en el Boton:true}
- [Invitame Si quieres](https://dsc.gg/phonyx)🥺 | [Servidor de Soporte](https://discord.gg/phonyx) | [Votar](https://bots.discordthings.com/bot/837140986743750656)
- [Top.gg](https://top.gg/bot/837140986743750656)
+{field:Tickets:Click en el Boton:true
+[Invitame Si quieres](https://dsc.gg/phonyx)🥺 | [Servidor de Soporte](https://discord.gg/phonyx) | [Votar](https://bots.discordthings.com/bot/837140986743750656)
+ [Top.gg](https://top.gg/bot/837140986743750656)}
+ 
 {color:#5865F2};{actionRow:Musica,2,1,musicaButton,:Moderacion,2,1,moderacionButton,:Diversion,2,1,diversionButton,:Utilidad,2,1,utilidadButton,:Tickets,2,1,ticketsButton};;yes]]`
 })
  
