@@ -1288,14 +1288,13 @@ modlogs: "",
 bot.command({
   name: "help",
   code: `
-$let[e;$apiMessage[;{title:Lista de Comandos}
+$let[$authorid;$apiMessage[;{title:Lista de Comandos}
 {thumbnail:$authorAvatar}
 {field:Musica:Click en el Boton:true}
 {field:Moderacion:Click en el Boton:true}
 {field:Diversion:Click en el Boton:true}
 {field:Utilidad:Click en el Boton:true}
 {field:Tickets:Click en el Boton:true}
-{field:[Invitame Si quieres](https://dsc.gg/phonyx)🥺 | [Servidor de Soporte](https://discord.gg/phonyx) | [Votar](https://bots.discordthings.com/bot/837140986743750656):true}
 {color:#5865F2};{actionRow:Musica,2,1,musicaButton,:Moderacion,2,1,moderacionButton,:Diversion,2,1,diversionButton,:Utilidad,2,1,utilidadButton,:Tickets,2,1,ticketsButton};;yes]]`
 })
  
