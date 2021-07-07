@@ -62,7 +62,7 @@ message.channel.send(emojis)]`
 })
 
 bot.command({
-  name: "help",
+  name: "helpog",
   code: `
   $title[Lista de comandos:]
   $description[😹Diversión[3] $getServerVar[prefix]decir $getServerVar[prefix]kill $getServerVar[prefix]logro
@@ -1004,7 +1004,7 @@ bot.awaitedCommand({
 bot.awaitedCommand({
  name: "awaitReaction5",
  code:  `
- $editMessage[$message[1];{title: Utilidad[15]} {description:$getServerVar[prefix]avatar  $getServerVar[prefix]serverinfo  $getServerVar[prefix]traducir $getServerVar[prefix]jumbo  $getServerVar[prefix]ping $getServerVar[prefix]ayuda $getServerVar[prefix]userinfo $getServerVar[prefix]stats $getServerVar[prefix]buscar-spotify $getServerVar[prefix]botinfo $getServerVar[prefix]setnick $getServerVar[prefix]addemoji $getServerVar[prefix]snipe $getServerVar[prefix]editsnipe $getServerVar[prefix]id-emote
+ $editMessage[$message[1];{title: Utilidad[15]} {description:$getServerVar[prefix]avatar $getServerVar[prefix]serverinfo $getServerVar[prefix]traducir $getServerVar[prefix]jumbo $getServerVar[prefix]ping $getServerVar[prefix]ayuda $getServerVar[prefix]userinfo $getServerVar[prefix]stats $getServerVar[prefix]buscar-spotify $getServerVar[prefix]botinfo $getServerVar[prefix]setnick $getServerVar[prefix]addemoji $getServerVar[prefix]snipe $getServerVar[prefix]editsnipe $getServerVar[prefix]id-emote
 } {color:RANDOM} 
 ] `
 
@@ -1286,17 +1286,17 @@ modlogs: "",
 })
 
 bot.command({
-  name: "help3",
+  name: "help",
   code: `
-$let[e;$apiMessage[;{title:Help Command}
+$let[e;$apiMessage[;{title:Lista de Comandos}
 {thumbnail:$authorAvatar}
 {field:Musica:Click en el Boton:true}
+{field:Moderacion:Click en el Boton:true}
+{field:Diversion:Click en el Boton:true}
 {field:Utilidad:Click en el Boton:true}
-{field:Fun:Click the Button:true}
-{field:Moderator:Click the Button:true}
-{field:Other:Click the Other Button:true}
+{field:Tickets:Click en el Boton:true}
  [Invitame Si quieres](https://dsc.gg/phonyx)🥺 | [Servidor de Soporte](https://discord.gg/phonyx) | [Votar](https://bots.discordthings.com/bot/837140986743750656)
- [Top.gg]()
+ [Top.gg](https://top.gg/bot/837140986743750656)
 {color:#5865F2};{actionRow:Musica,2,1,musicaButton,:Moderacion,2,1,moderacionButton,:Diversion,2,1,diversionButton,:Utilidad,2,1,utilidadButton,:Tickets,2,1,ticketsButton};;yes]]`
 })
  
@@ -1309,6 +1309,7 @@ $interactionDelete
 $wait[30s]
 $interactionEdit[;{color:#2f3136}{title:Musica[13]}{description:$getServerVar[prefix]play $getServerVar[prefix]join $getServerVar[prefix]leave $getServerVar[prefix]nowplaying $getServerVar[prefix]volume $getServerVar[prefix]queue $getServerVar[prefix]pause $getServerVar[prefix]resume $getServerVar[prefix]skip $getServerVar[prefix]stop $getServerVar[prefix]loop $getServerVar[prefix]resume $getServerVar[prefix]clearqueue $getServerVar[prefix]lyrics}]
 $wait[3s]
+$color[RANDOM]
 $interactionReply[Cargando los comandos de musica;;;0;4]`
 })
  
@@ -1317,8 +1318,9 @@ bot.interactionCommand({
  prototype:"button",
  code:`$interactionDelete
 $wait[30s]
-$interactionEdit[;{color:#2f3136}{title:Economy Commands}{description:These are my commands\ncommands names here}]
+$interactionEdit[;{color:#2f3136}{title:Moderacion[15]}{description:$getServerVar[prefix]ban $getServerVar[prefix]unban $getServerVar[prefix]kick $getServerVar[prefix]temprole $getServerVar[prefix]giverole $getServerVar[prefix]removerole $getServerVar[prefix]clear $getServerVar[prefix]id $getServerVar[prefix]setlogs $getServerVar[prefix]warn $getServerVar[prefix]unwarn $getServerVar[prefix]warns $getServerVar[prefix]nuke $getServerVar[prefix]lock $getServerVar[prefix]unlock}]
 $wait[3s]
+$color[RANDOM]
 $interactionReply[I'm loading economy commands;;;0;4]`
 })
  
@@ -1327,8 +1329,9 @@ bot.interactionCommand({
  prototype:"button",
  code:`$interactionDelete
 $wait[30s]
-$interactionEdit[;{color:#2f3136}{title:Fun Commands}{description:These are my commands\ncommands names here}]
+$interactionEdit[;{color:#2f3136}{title:  Diversion[3]}{description:$getServerVar[prefix]decir $getServerVar[prefix]kill $getServerVar[prefix]logro}]
 $wait[3s]
+$color[RANDOM]
 $interactionReply[I'm loading fun commands;;;0;4]`
 })
  
@@ -1336,20 +1339,22 @@ bot.interactionCommand({
  name: "utilidadButton",
  prototype:"button",
  code:`$interactionDelete
-$wait[10s]
-$interactionEdit[;{color:#2f3136}{title:Moderation Commands}{description:These are my commands\ncommands names here}]
+$wait[30s]
+$interactionEdit[;{color:#2f3136}{title: Utilidad[15]}{description:$getServerVar[prefix]avatar $getServerVar[prefix]serverinfo $getServerVar[prefix]traducir $getServerVar[prefix]jumbo $getServerVar[prefix]ping $getServerVar[prefix]ayuda $getServerVar[prefix]userinfo $getServerVar[prefix]stats $getServerVar[prefix]buscar-spotify $getServerVar[prefix]botinfo $getServerVar[prefix]setnick $getServerVar[prefix]addemoji $getServerVar[prefix]snipe $getServerVar[prefix]editsnipe $getServerVar[prefix]id-emote}]
 $wait[3s]
-$interactionReply[I'm loading moderation commands;;;0;4]`
+$color[RANDOM]
+$interactionReply[Cargando los comandos de Utilidad;;;0;4]`
 })
  
 bot.interactionCommand({
  name: "ticketsButton",
  prototype: "button",
  code:`$interactionDelete
-$wait[10s]
-$interactionEdit[;{color:#2f3136}{title:Other Commands}{description:These are my commands\ncommands names here}]
+$wait[30s]
+$interactionEdit[;{color:#2f3136}{title:Tickets[3]}{description:$getServerVar[prefix]tsetup $getServerVar[prefix]ticket $getServerVar[prefix]close}]
 $wait[3s]
-$interactionReply[Estoy Cargando los Comandos de juegos Espera;;;0;4]`
+$color[RANDOM]
+$interactionReply[Estoy Cargando los Comandos de los Tickets;;;0;4]`
 })
 //////FIN DE COMANDOS
 keepAlive()
