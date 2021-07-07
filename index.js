@@ -1319,7 +1319,7 @@ $wait[30s]
 $interactionEdit[;{color:#2f3136}{title:Moderacion[15]}{description:$getServerVar[prefix]ban $getServerVar[prefix]unban $getServerVar[prefix]kick $getServerVar[prefix]temprole $getServerVar[prefix]giverole $getServerVar[prefix]removerole $getServerVar[prefix]clear $getServerVar[prefix]id $getServerVar[prefix]setlogs $getServerVar[prefix]warn $getServerVar[prefix]unwarn $getServerVar[prefix]warns $getServerVar[prefix]nuke $getServerVar[prefix]lock $getServerVar[prefix]unlock}]
 $wait[3s]
 $color[RANDOM]
-$interactionReply[I'm loading economy commands;;;0;4]`
+$interactionReply[Cargando los comandos de Moderacion;;;0;4]`
 })
  
 bot.interactionCommand({
@@ -1330,7 +1330,7 @@ $wait[30s]
 $interactionEdit[;{color:#2f3136}{title:  Diversion[3]}{description:$getServerVar[prefix]decir $getServerVar[prefix]kill $getServerVar[prefix]logro}]
 $wait[3s]
 $color[RANDOM]
-$interactionReply[I'm loading fun commands;;;0;4]`
+$interactionReply[Cargando los comandos de diversion;;;0;4]`
 })
  
 bot.interactionCommand({
