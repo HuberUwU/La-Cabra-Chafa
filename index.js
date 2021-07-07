@@ -1318,8 +1318,7 @@ bot.interactionCommand({
 $wait[30s]
 $interactionEdit[;{color:#2f3136}{title:Moderacion[15]}{description:$getServerVar[prefix]ban $getServerVar[prefix]unban $getServerVar[prefix]kick $getServerVar[prefix]temprole $getServerVar[prefix]giverole $getServerVar[prefix]removerole $getServerVar[prefix]clear $getServerVar[prefix]id $getServerVar[prefix]setlogs $getServerVar[prefix]warn $getServerVar[prefix]unwarn $getServerVar[prefix]warns $getServerVar[prefix]nuke $getServerVar[prefix]lock $getServerVar[prefix]unlock}]
 $wait[3s]
-$color[RANDOM]
-$interactionReply[Cargando los comandos de Moderacion;;;0;4]`
+$interactionReply[Cargando los comandos de moderacion;;;0;4]`
 })
  
 bot.interactionCommand({
