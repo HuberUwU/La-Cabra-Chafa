@@ -1308,7 +1308,7 @@ $wait[30s]
 $interactionEdit[;{color:#2f3136}{title:Musica[13]}{description:$getServerVar[prefix]play $getServerVar[prefix]join $getServerVar[prefix]leave $getServerVar[prefix]nowplaying $getServerVar[prefix]volume $getServerVar[prefix]queue $getServerVar[prefix]pause $getServerVar[prefix]resume $getServerVar[prefix]skip $getServerVar[prefix]stop $getServerVar[prefix]loop $getServerVar[prefix]resume $getServerVar[prefix]clearqueue $getServerVar[prefix]lyrics}]
 $wait[3s]
 $color[RANDOM]
-$interactionReply[Cargando los comandos de musica;;;0;4]`
+$interactionReply[<a:Cargando:839179275541676032>Cargando los comandos de musica;;;0;4]`
 })
  
 bot.interactionCommand({
@@ -1318,7 +1318,7 @@ bot.interactionCommand({
 $wait[30s]
 $interactionEdit[;{color:#2f3136}{title:Moderacion[15]}{description:$getServerVar[prefix]ban $getServerVar[prefix]unban $getServerVar[prefix]kick $getServerVar[prefix]temprole $getServerVar[prefix]giverole $getServerVar[prefix]removerole $getServerVar[prefix]clear $getServerVar[prefix]id $getServerVar[prefix]setlogs $getServerVar[prefix]warn $getServerVar[prefix]unwarn $getServerVar[prefix]warns $getServerVar[prefix]nuke $getServerVar[prefix]lock $getServerVar[prefix]unlock}]
 $wait[3s]
-$interactionReply[Cargando los comandos de moderacion;;;0;4]`
+$interactionReply[<a:Cargando:839179275541676032>Cargando los comandos de moderacion;;;0;4]`
 })
  
 bot.interactionCommand({
@@ -1329,7 +1329,7 @@ $wait[30s]
 $interactionEdit[;{color:#2f3136}{title:  Diversion[3]}{description:$getServerVar[prefix]decir $getServerVar[prefix]kill $getServerVar[prefix]logro}]
 $wait[3s]
 $color[RANDOM]
-$interactionReply[Cargando los comandos de diversion;;;0;4]`
+$interactionReply[<a:Cargando:839179275541676032>Cargando los comandos de diversion;;;0;4]`
 })
  
 bot.interactionCommand({
@@ -1340,7 +1340,7 @@ $wait[30s]
 $interactionEdit[;{color:#2f3136}{title: Utilidad[15]}{description:$getServerVar[prefix]avatar $getServerVar[prefix]serverinfo $getServerVar[prefix]traducir $getServerVar[prefix]jumbo $getServerVar[prefix]ping $getServerVar[prefix]ayuda $getServerVar[prefix]userinfo $getServerVar[prefix]stats $getServerVar[prefix]buscar-spotify $getServerVar[prefix]botinfo $getServerVar[prefix]setnick $getServerVar[prefix]addemoji $getServerVar[prefix]snipe $getServerVar[prefix]editsnipe $getServerVar[prefix]id-emote}]
 $wait[3s]
 $color[RANDOM]
-$interactionReply[Cargando los comandos de Utilidad;;;0;4]`
+$interactionReply[<a:Cargando:839179275541676032>Cargando los comandos de Utilidad;;;0;4]`
 })
  
 bot.interactionCommand({
@@ -1351,7 +1351,7 @@ $wait[30s]
 $interactionEdit[;{color:#2f3136}{title:Tickets[3]}{description:$getServerVar[prefix]tsetup $getServerVar[prefix]ticket $getServerVar[prefix]close}]
 $wait[3s]
 $color[RANDOM]
-$interactionReply[Estoy Cargando los Comandos de los Tickets;;;0;4]`
+$interactionReply[<a:Cargando:839179275541676032>Estoy Cargando los Comandos de los Tickets;;;0;4]`
 })
 //////FIN DE COMANDOS
 keepAlive()
