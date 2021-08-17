@@ -1356,7 +1356,7 @@ $interactionReply[<a:Cargando:839179275541676032>Estoy Cargando los Comandos de 
 
 bot.command({
 name: "antilink",
-code: `$let[e;$apiMessage[;{author:$username[$authorID]#$discriminator[$authorID]:$authorAvatar::}{description:✅ -> \`Activar\`\n\n 🔒-> \`Desactivar\`\n** El Antilink esta:** $replaceText[$replaceText[$getServerVar[antilink];true;Activado];false;Apagado]}{timestamp:ms}{color:#5865F2};{actionRow:Activar,2,1,EnableButton,✅|0|false: Desactivar,2,1,DisableButton,⛔|0|false};;yes]]
+code: `$let[e;$apiMessage[;{author:$username[$authorID]#$discriminator[$authorID]:$authorAvatar::}{description:✅ -> \`Activar\`\n\n 🔒-> \`Desactivar\`\n** El Antilink esta:** $replaceText[$replaceText[$getServerVar[antilink];true;Activado];false;Apagado]}{timestamp:ms}{color:#5865F2};{actionRow:Activar,2,1,EnableButtona,✅|0|false: Desactivar,2,1,DisableButtona,⛔|0|false};;yes]]
 $onlyPerms[admin;Necesitas Ser administrador para usar este comando]
 $onlyBotPerms[admin;No puedo usar este comando porque no tengo administrador]`
 })
@@ -1364,8 +1364,7 @@ $onlyBotPerms[admin;No puedo usar este comando porque no tengo administrador]`
 bot.interactionCommand({
  name: "EnableButton",
  prototype:"button",
- code:`$deleteIn[8s]
- $setServerVar[antilink;true]
+ code:`$setServerVar[antilink;true]
 $interactionReply[;{title:✅ Listo}{description:Antilink Activado!}{color:#7BDE3D};;0;7]
 $onlyIf[$getServerVar[antilink]==false;$interactionReply[✅ - Antilink esta Activado!;;;0;4]
 $onlyPerms[admin;No Tienes permisos de administrador para interactuar`
@@ -1374,8 +1373,7 @@ $onlyPerms[admin;No Tienes permisos de administrador para interactuar`
 bot.interactionCommand({
  name: "DisableButton",
  prototype:"button",
- code:`$deleteIn[8s]
- $setServerVar[antilink;false]
+ code:`$setServerVar[antilink;false]
 $interactionReply[;{title:✅ Listo}{description:Antilink Desactivado!!}{color:#179C33};;0;7]
 $onlyIf[$getServerVar[antilink]==true;$interactionReply[✅ - Listo El Antilink se desactivo!;;;0;4]`
 })
