@@ -1377,8 +1377,7 @@ bot.interactionCommand({
  code:`$deleteIn[8s]
  $setServerVar[antilink;false]
 $interactionReply[;{title:✅ Listo}{description:Antilink Desactivado!!}{color:#179C33};;0;7]
-$onlyIf[$getServerVar[antilink]==true;$interactionReply[✅ - Listo El Antilink se desactivo!;;;0;4] 
-$onlyPerms[admin;Error No Eres Administrador]`
+$onlyIf[$getServerVar[antilink]==true;$interactionReply[✅ - Listo El Antilink se desactivo!;;;0;4]`
 })
  
  
