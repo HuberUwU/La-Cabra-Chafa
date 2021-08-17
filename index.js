@@ -1353,5 +1353,48 @@ $wait[3s]
 $color[RANDOM]
 $interactionReply[<a:Cargando:839179275541676032>Estoy Cargando los Comandos de los Tickets;;;0;4]`
 })
+
+bot.command({
+name: "antilink",
+code: `$let[e;$apiMessage[;{author:$username[$authorID]#$discriminator[$authorID]:$authorAvatar::}{description:✅ -> \`Activar\`\n\n 🔒-> \`Desactivar\`\n** El Antilink esta:** $replaceText[$replaceText[$getServerVar[antilink];true;Activado];false;Apagado]}{timestamp:ms}{color:#5865F2};{actionRow:Activar,2,1,EnableButton,✅|0|false: Desactivar,2,1,DisableButton,⛔|0|false};;yes]]
+$onlyPerms[admin;Necesitas Ser administrador para usar este comando]
+$onlyBotPerms[admin;No puedo usar este comando porque no tengo administrador]`
+})
+ 
+bot.interactionCommand({
+ name: "EnableButton",
+ prototype:"button",
+ code:`$deleteIn[8s]
+ $setServerVar[antilink;true]
+$interactionReply[;{title:✅ Listo}{description:Antilink Activado!}{color:#7BDE3D};;0;7]
+$onlyIf[$getServerVar[antilink]==false;$interactionReply[✅ - Antilink esta Activado!;;;0;4]
+$onlyPerms[admin;No Tienes permisos de administrador para interactuar`
+})
+ 
+bot.interactionCommand({
+ name: "DisableButton",
+ prototype:"button",
+ code:`$deleteIn[8s]
+ $setServerVar[antilink;false]
+$interactionReply[;{title:✅ Listo}{description:Antilink Desactivado!!}{color:#179C33};;0;7]
+$onlyIf[$getServerVar[antilink]==true;$interactionReply[✅ - Listo El Antilink se desactivo!;;;0;4] 
+$onlyPerms[admin;Error No Eres Administrador]`
+})
+ 
+ 
+bot.command({
+name: "$alwaysExecute",
+code: `
+$deleteIn[10s]
+<@$authorID>, \`No puedes mandar links aqui!\` ***Razon***:**Antilinks Activado.**
+$deletecommand
+$onlyIf[$checkContains[$message;https#COLON#://;http#COLON#//;discord.gg/;https://discord.gg/;https://twitch.tv/;https://discord.io/;https://youtube]==true;]
+$onlyIf[$hasAnyPerm[admin;manageserver;managechannels;manageroles]==false;]
+ $onlyIf[$getServerVar[antilink]==true;] 
+`})
+
+bot.variables({
+  antilink: "false"
+})
 //////FIN DE COMANDOS
 keepAlive()
