@@ -594,17 +594,24 @@ $suppressErrors`
 
 bot.command({
 name: "stats",
-code:  `$color[8700D9]$description[CPU usada: $cpu%/100%
+code:  `$color[8700D9]$description[CPU usada: $cpu
 
-RAM usada: $ramGB/100GB
+RAM usada: $ram
 
 Tiempo Online: $uptime
 
-Librerias
+Libreria
 
 <:node:841219021973618718>[Node.js v16.3.0](https://nodejs.org) 
 
-<:aoijs:841218705064722452>[Aoi.js v 4.1.0](https://aoi.leref.ga) 
+<:aoijs:841218705064722452>[Aoi.js v 4.0.1](https://aoi.leref.ga) 
+
+❤️Soci@s
+Awita_awada#0744
+chaツ 亗#8851 
+
+⚙️Developer
+const Yoli = require("HuberUwU")#1656 
 
 [Soporte](https://discord.gg/phonyx) | [Invitar](https://dsc.gg/phonyx)`
 })
@@ -1345,45 +1352,6 @@ $interactionEdit[;{color:#2f3136}{title:Tickets[3]}{description:$getServerVar[pr
 $wait[3s]
 $color[RANDOM]
 $interactionReply[<a:Cargando:839179275541676032>Estoy Cargando los Comandos de los Tickets;;;0;4]`
-})
-
-bot.command({
-name: "antilink",
-code: `$let[e;$apiMessage[;{author:$username[$authorID]#$discriminator[$authorID]:$authorAvatar::}{description:✅ -> \`Enable\`\n\n⛔ -> \`Disable\`\n**Antilink status:** $replaceText[$replaceText[$getServerVar[antilink];true;Enabled];false;Disabled]}{timestamp:ms}{color:#5865F2};{actionRow:Enable,2,1,EnableButton,✅|0|false:Disable,2,1,DisableButton,⛔|0|false};;yes]]
-$onlyPerms[admin;Missing permission:\`admin\`]
-$onlyBotPerms[admin;Missing permission:\`admin\`]`
-})
- 
-bot.interactionCommand({
- name: "EnableButton",
- prototype:"button",
- code:`$setServerVar[antilink;true]
-$interactionReply[;{title:✅ Done}{description:Antilink successfully enabled!}{color:#7BDE3D};;0;7]
-$onlyIf[$getServerVar[antilink]==false;$interactionReply[Antilink already enabled!;;;0;4]`
-})
- 
-bot.interactionCommand({
- name: "DisableButton",
- prototype:"button",
- code:`$setServerVar[antilink;false]
-$interactionReply[;{title:✅ Done}{description:Antilink successfully disabled!!}{color:#179C33};;0;7]
-$onlyIf[$getServerVar[antilink]==true;$interactionReply[Antilink already disabled!;;;0;4]`
-})
- 
- 
-bot.command({
-name: "$alwaysExecute",
-code: `
-$deleteIn[5s]
-<@$authorID>, \`You can't send links here!\` ***Reason***:**Antilink Enabled.**
-$deletecommand
-$onlyIf[$checkContains[$message;https#COLON#://;http#COLON#//;discord.gg/;https://discord.gg/]==true;]
-$onlyIf[$hasAnyPerm[admin;manageserver;managechannels;manageroles]==false;]
- $onlyIf[$getServerVar[antilink]==true;] 
-`})
-
-bot.variables({
-antilink:false
 })
 //////FIN DE COMANDOS
 keepAlive()
