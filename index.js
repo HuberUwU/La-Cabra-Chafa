@@ -165,7 +165,7 @@ name: "stop",
 code: `$stopSong
 $sendMessage[⏹️ Se a parado las canciones.;no]
 $onlyIf[$queueLength!=0;**⛔  Ninguna Cancion se esta Reproduciendo**]
-$deleteIn[25s]La solucion es muy sencilla!
+$deleteIn[25s]
 $onlyIf[$voiceID==$voiceID[$clientID];No estas en el mismo canal de voz que yo.]
 $onlyIf[$voiceID!=;No estas en un canal de voz!] `
 })
