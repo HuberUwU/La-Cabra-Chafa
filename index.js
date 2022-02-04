@@ -1066,7 +1066,7 @@ bot.channelCreateCommand({
  channel: "$getServerVar[logs]", 
  code: `$title[💬 | Canal Creado]
  $addField[💿 | Nombre: $newChannel[name] ]
-$addField[Creado por <@$authorID> ] ]
+$addField[Creado por [<@$authorID> ] ]
  $footer[Logs]`
  })
 bot.onChannelCreate()
