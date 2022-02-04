@@ -1075,7 +1075,7 @@ bot.channelDeleteCommand({
  channel: "$getServerVar[logs]", 
  code: `$title[🌩️ | Canal eliminado]
  $addField[💳 | Nombre: $oldChannel[name] ]
- $addField[Eliminado Por <@$authorID>]
+ $addField[Eliminado Por <@$authorID>] ]
  $footer[Logs]`
  })
 bot.onChannelDelete()
