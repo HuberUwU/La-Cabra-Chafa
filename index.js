@@ -335,23 +335,6 @@ $serverEmojis]
 $color[8700D9]`
 })
 
-bot.command({
- name: "addwiki",
- code:  `
-$title[New Wiki!]
-$description[$message]
-$color[00fffff]
-$footer[By: $username#$discriminator[$authorID]]
-$argsCheck[>1;Usage: $getServerVar[prefx]addwiki <entry>]
-$onlyIf[$charCount[$message]<2049;x Max. 2048 character]
-$channelSendMessage[$channelID;wiki sent.]
-$cooldown[30s;x Please wait %time% before using this command again]
-$onlyIf[$getServerVar[wikichannel]!=;This server has no wiki channel run <setwikichannel to set one!]
-$onlyIf[$getServerVar[wiki_system]==true;wiki system is not enabled!]
-
- $useChannel[$getServerVar[wikichannel]] `
-});
-
 bot.variables({
 prefx: "?",
 })
@@ -423,7 +406,6 @@ $description[**Bot name** : <@$mentioned[1]>
 $color[8700D9]
 
 $argsCheck[1;{title:⚠️ ERROR ⚠️} {description:❌ **|  Tu necesitas mencionar a un bot**} {color:RED}] `
-
 })
 
 bot.command({
@@ -529,7 +511,7 @@ $onlyIf[$rolePosition[$highestRole[$clientID]]<$rolePosition[$highestRole[$menti
 $onlyIf[$rolePosition[$highestRole[$authorID]]<$rolePosition[$highestRole[$mentioned[1;yes]]];**⛔  Este Usuario tiene una posición mas alta que tu**]
 $onlyIf[$message[2]!=;**⛔  Da una razon**]
 $onlyIf[$mentioned[1]!=;**⛔  Menciona a alguien para warnearlo y da una razon**]
-$onlyIf[$mentioned[1]!=$authorID;**⛔ You can't warn yourself**]
+$onlyIf[$mentioned[1]!=$authorID;**⛔ No puedes darte warn a tu mismo**]
 $onlyIf[$isBot[$mentioned[1;yes]]!=true;**⛔  No puedes warnear a un bot*]
 $onlyBotPerms[manageroles;⛔ ** No tengo permiso de** \`MANAGAGE_ROLES\`]
 $onlyPerms[manageroles;⛔ **Tu no tienes permiso de** \`MANAGAGE_ROLES\` ]`
@@ -705,123 +687,6 @@ snipe_msg: "",
 msgEditorID: "undefined",
 esnipeOldMsg: "undefined"
 })
-
-bot.command({
-name: "work", 
-code: `$setGlobalUserVar[Wallet;$sum[$getGlobalUserVar[Wallet;$authorID];$random[45;100]];$authorID]
-$setGlobalUserVar[XP;$sum[$getGlobalUserVar[XP;$authorID];$random[30;90]];$authorID]
-$thumbnail[$userAvatar[$authorID]]
-$color[RANDOM]
-$title[Work]
-$description[
-$username, $randomText[it looks like you'd do anything for money 😳.;Diseñaste una aplicación de mensajeria y te fue bien y ganaste !;Trabajaste en una empresa y te pagaron la semana has ganado !;Fuiste a un antro como DJ y te pagaron ! Ayudaste a un vagabundo pero era un millonario y te regalo ;fuiste el empleado del mes en un restaurante ganaste ;hackeaste a una compañia que robaba dinero a las personas y te dieron ]
-]
-$footer[💵 +$$random[96;3628] | 🔢 +$random[30;90]xp]
-$globalCooldown[60s;Try again in %time%]`
-})
- 
-bot.command({
-name: "beg", 
-code: `$setGlobalUserVar[Wallet;$sum[$getGlobalUserVar[Wallet;$authorID];$random[121;400]];$authorID]
-$setGlobalUserVar[XP;$sum[$getGlobalUserVar[XP;$authorID];$random[25;80]];$authorID]
-$title[Beg]
-$thumbnail[$userAvatar[$authorID]]
-$color[RANDOM]
-$description[$username, $randomText[Begging is for the weak so here;Here, take this and go;Here, don't let this be a habit;I take you for a well put together human being, why are you begging?;Why can't you just get a job?]
-]
-$footer[💵 +$$random[121;400] | 🔢 +$random[25;80]xp]
-$globalCooldown[300s;Espera %time% para usar este comando de nuevo]`
-})
- 
-bot.command({
-name: "bal", 
-code: `$onlyIf[$isBot[$mentioned[1;yes]]!=true;Discord bots dont have a balance]
-$thumbnail[$userAvatar[$mentioned[1;yes]]]
-$color[RANDOM]
-$title[$username[$mentioned[1;yes]]'s Balance]
-$description[
-$addField[🔢 Xp;
-$numberSeparator[$getGlobalUserVar[XP;$mentioned[1;yes]]]xp
-]
-$addField[💵 Cartera;
-$$numberSeparator[$getGlobalUserVar[Wallet;$mentioned[1;yes]]]
-]
-$addField[🏧 Banco;
-$$numberSeparator[$getGlobalUserVar[Bank;$mentioned[1;yes]]]
-]
-$addField[ Dinero Total;
-$$numberSeparator[$sum[$getGlobalUserVar[Wallet;$mentioned[1;yes]];$getGlobalUserVar[Bank;$mentioned[1;yes]]]]
-]]`
-})
-
-bot.command({
-name: "profile",
-code: `$onlyIf[$isBot[$mentioned[1;yes]]!=true;**⛔  Los bots no tienen perfil en economia**]
-$thumbnail[$userAvatar[$mentioned[1;yes]]]
-$title[Perfil de Economia]
-$color[RANDOM]
-$description[
-**__User/ID__**:
-<@$mentioned[1;yes]>
-$username[$mentioned[1;yes]]#$discriminator[$mentioned[1;yes]]
-(\`$mentioned[1;yes]\`)
- 
-**__Economia__**:
-\`💵\` **$$numberSeparator[$getGlobalUserVar[Wallet;$mentioned[1;yes]]]**
-\`🏦\` **$$numberSeparator[$getGlobalUserVar[Bank;$mentioned[1;yes]]]**
-\`📊\` **$$numberSeparator[$sum[$getGlobalUserVar[Wallet;$mentioned[1;yes]];$getGlobalUserVar[Bank;$mentioned[1;yes]]]]**
-\`🗡\` **$numberSeparator[$getGlobalUserVar[XP;$mentioned[1;yes]]]**xp
- 
-**__Assets__**:
-\`💼\` ($getGlobalUserVar[duffle;$mentioned[1;yes]]) Bags
-\`📺\` ($getGlobalUserVar[tv;$mentioned[1;yes]]) TVs
-\`📱\` ($getGlobalUserVar[smartphone;$mentioned[1;yes]]) Smartphones
-\`💻\` ($getGlobalUserVar[laptop;$mentioned[1;yes]]) Laptops
-\`🚗\` ($getGlobalUserVar[car;$mentioned[1;yes]]) Cars
-\`🚚\` ($getGlobalUserVar[truck;$mentioned[1;yes]]) Trucks
-\`🚁\` ($getGlobalUserVar[helicopter;$mentioned[1;yes]]) Helicopters
-\`🏫\` ($getGlobalUserVar[apartment;$mentioned[1;yes]]) Apartments
-\`🏡\` ($getGlobalUserVar[house;$mentioned[1;yes]]) Houses
-\`🏰\` ($getGlobalUserVar[mansion;$mentioned[1;yes]]) Mansions
-]`
-})
- 
- 
-bot.command({
-name: "deposit", 
-aliases: 'dep',
-code: `$setGlobalUserVar[Bank;$sum[$getGlobalUserVar[Bank;$authorID];$message];$authorID]
-$setGlobalUserVar[Wallet;$sub[$getGlobalUserVar[Wallet;$authorID];$message];$authorID]
-$title[Deposited]
-$thumbnail[$userAvatar[$authorID]]
-$color[RANDOM]
-$description[
-$username, you deposited $$numberSeparator[$message] into your bank!]
-$footer[💵 $$numberSeparator[$sub[$getGlobalUserVar[Wallet;$authorID];$message]] | 🏦 $$numberSeparator[$sum[$getGlobalUserVar[Bank;$authorID];$message]] | 📊 $$numberSeparator[$sum[$getGlobalUserVar[Wallet;$authorID];$getGlobalUserVar[Bank;$authorID]]]]
-$onlyIf[$isNumber[$message[1]]==true;That's not a number!]
-$onlyIf[$message<=$getGlobalUserVar[Wallet;$authorID];Cannot deposit more than what's in your wallet!]
-$argsCheck[>1;How much are you depositing? Try this: \`$getServerVar[prefix]dep <amount>\`]
-$onlyIf[$getGlobalUserVar[Wallet;$authorID]>0;There's nothing to deposit!]`
-})
- 
- 
-bot.command({
-  name: 'withdraw',
-  aliases: 'with',
-  code: `$setGlobalUserVar[Wallet;$sum[$getGlobalUserVar[Wallet;$authorID];$message];$authorID]
-$setGlobalUserVar[Bank;$sub[$getGlobalUserVar[Bank;$authorID];$message];$authorID]
-$title[Withdrew]
-$thumbnail[$userAvatar[$authorID]]
-$color[RANDOM]
-$description[
-$username, you withdrew $$numberSeparator[$message] from your bank!]
-$footer[💵 $$numberSeparator[$sum[$getGlobalUserVar[Wallet;$authorID];$message]] | 🏦 $$numberSeparator[$sub[$getGlobalUserVar[Bank;$authorID];$message]] | 📊 $$numberSeparator[$sum[$getGlobalUserVar[Wallet;$authorID];$getGlobalUserVar[Bank;$authorID]]]]
-$onlyIf[$isNumber[$message[1]]==true;That's not a number!]
-$onlyIf[$message<=$getGlobalUserVar[Bank;$authorID];Cannot withdraw more than what's in your bank!]
-$argsCheck[>1;How much are you withdrawing?]
-$onlyIf[$getGlobalUserVar[Bank;$authorID]>0;There's nothing to withdraw!]`
-})
-
 	
 bot.command({
  name: "tsetup",
@@ -1200,20 +1065,18 @@ $image[https://images-ext-1.discordapp.net/external/koFBcFdUJ9Aw5USUkKPH_o-Zhq4Y
 bot.channelCreateCommand({ 
  channel: "$getServerVar[logs]", 
  code: `$title[💬 | Canal Creado]
- $description[
- 💿 | Nombre: $newChannel[name] ]
- $footer[Logs]
- Creado por <@$authorID>`
+ $addField[💿 | Nombre: $newChannel[name] ]
+$addField[Creado por <@$authorID> ]
+ $footer[Logs]`
  })
 bot.onChannelCreate()
 
 bot.channelDeleteCommand({ 
  channel: "$getServerVar[logs]", 
  code: `$title[🌩️ | Canal eliminado]
- $description[
- 💳 | Nombre: $oldChannel[name] ]
- $footer[Logs]
- Eliminado Por <@$authorID>`
+ $addField[💳 | Nombre: $oldChannel[name] ]
+ $addField[Eliminado Por <@$authorID>]
+ $footer[Logs]`
  })
 bot.onChannelDelete()
 
