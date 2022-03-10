@@ -1065,8 +1065,8 @@ $image[https://images-ext-1.discordapp.net/external/koFBcFdUJ9Aw5USUkKPH_o-Zhq4Y
 bot.channelCreateCommand({ 
  channel: "$getServerVar[logs]", 
  code: `$title[💬 | Canal Creado]
- $addField[💿 | Nombre: $newChannel[name] ]
-$addField[Creado por [<@$authorID> ] ]
+ $addField[Canal creado por $username
+💿 | Nombre: $newChannel[name] ]
  $footer[Logs]`
  })
 bot.onChannelCreate()
@@ -1074,8 +1074,8 @@ bot.onChannelCreate()
 bot.channelDeleteCommand({ 
  channel: "$getServerVar[logs]", 
  code: `$title[🌩️ | Canal eliminado]
- $addField[💳 | Nombre: $oldChannel[name] ]
- $addField[Eliminado Por <@$authorID>] ]
+ $addField[Canal Eliminado por $username
+💳 | Nombre: $oldChannel[name] ]
  $footer[Logs]`
  })
 bot.onChannelDelete()
@@ -1083,11 +1083,10 @@ bot.onChannelDelete()
 bot.channelUpdateCommand({ 
  channel: "$getServerVar[logs]", 
  code: `$title[💬 | Canal editado]
- $description[
+ $description[Canal editado por $username
  💿 | Nombre ant: $oldChannel[name]
  📀 | Nombre nuevo: $newChannel[name]]
- $footer[Logs]
- Editado Por`
+ $footer[Logs]`
  })
 bot.onChannelUpdate()
 
@@ -1104,7 +1103,7 @@ bot.onMessageUpdate()
 
 bot.deletedCommand({
  channel: "$getServerVar[logs]",
- code: `$title[:x: | Mensaje Eliminado]
+ code: `$title[✖️ | Mensaje Eliminado]
  $description[🌑 | Mensaje eliminado por: $username
  🚩 | Eliminado en: <#$channelUsed>
  💬 | Mensaje borrado: $message]`
@@ -1117,7 +1116,7 @@ bot.command({
  code: `$setServerVar[logs;$mentionedChannels[1]]
 $description[ | **Se a seleccionado <#$mentionedChannels[1]> Como canal de logs.**]
 $argsCheck[>1;❗ | Menciona un canal para establecerlo como de logs.]
-$onlyPerms[admin;:amal: | **No tienes permisos de adminitracion]`
+$onlyPerms[admin;:amal: | **No tienes permisos de administrador]`
 })
 
 bot.variables({
