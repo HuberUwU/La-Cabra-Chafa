@@ -9,7 +9,7 @@ mobile: false,
 })
 
 bot.onMessage()
-///COMANDOS!!
+///COMANDOS!!a
 bot.status({
       text: "En $serverCount servers :0",
       type: "WATCHING",
