@@ -4,7 +4,7 @@ const bot = new Aoijs.Bot({
   sharding: false, 
   shardAmount: 2, 
 mobile: false,
-  token: "ODM3MTQwOTg2NzQzNzUwNjU2.YIoOTA.lnHRtHZEseVloTZ4y7fQdreiN4s", 
+  token: "ODM3MTQwOTg2NzQzNzUwNjU2.GYlYzs.g34vXAMwCPeT45n4gSrlhLsrkGdN67O6T1Ryqk", 
   prefix: ["$getServerVar[prefix]"] 
 })
 
